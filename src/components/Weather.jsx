@@ -5,19 +5,26 @@ const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
 
+  // Utility function to convert Kelvin to Celsius
+  const kelvinToCelsius = (kelvin) => {
+    return Math.round(kelvin - 273.15);
+  };
+
   const fetchWeather = async () => {
     if (!city) {
       setError('Please enter a city name');
       return;
     }
-
     try {
-      const response = await fetch(`https://checkweather-pzv3.onrender.com/api/weather/${city}`);
+      const response = await fetch(`http://localhost:5000/api/weather/${city}`);
       if (!response.ok) {
         throw new Error('City not found');
       }
       const data = await response.json();
-      setWeatherData(data);
+      setWeatherData({
+        ...data,
+        temperature: kelvinToCelsius(data.temperature) // Convert temperature here
+      });
       setError('');
     } catch (err) {
       setError(err.message);

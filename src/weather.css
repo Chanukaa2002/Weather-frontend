@@ -1,0 +1,114 @@
+/* Spinning animation for loading */
+.spin-animation {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Rain animation */
+.rain-drop {
+  animation: rain 1s linear infinite;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Cloud float animation */
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Lightning animation */
+.lightning-animation {
+  animation: lightning 3s ease-in-out infinite;
+}
+
+@keyframes lightning {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  93% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+}
+
+/* Sun spin animation */
+.spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Weather container styles */
+.weather-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #f3f4f6;
+}
+
+.weather-card {
+  width: 100%;
+  max-width: 28rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.animation-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

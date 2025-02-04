@@ -111,7 +111,7 @@ const Weather = () => {
     setIsLoading(true);
     setError('');
     try {
-      const response = await fetch(`http://localhost:5000/api/weather/${city}`);
+      const response = await fetch(`https://checkweather-pzv3.onrender.com/api/weather/${city}`);
       if (!response.ok) {
         throw new Error('City not found');
       }
